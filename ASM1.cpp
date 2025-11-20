@@ -6,7 +6,6 @@ int main() {
     int luaChon;
     
     do {
-        // Hiển thị menu
         printf("\nChao mung ban den voi ASM cua toi");
         printf("\nNhap 1: Lua chon chuc nang So nguyen");
         printf("\nNhap 2: Lua chon chuc nang tim UCLN va BCNN");
@@ -16,36 +15,41 @@ int main() {
         printf("\nMoi ban nhap lua chon: ");
         scanf("%d", &luaChon);
         
-        // Xử lý lựa chọn
         switch(luaChon) {
-            case 1: {
+           case 1:{
                 printf("Ban chon CN1\n");
-                
                 float x;
-                printf("Moi ban nhap so thuc x: ");
+                printf("Moi ban nhap so x: ");
                 scanf("%f", &x);
-                
-                // Kiểm tra x có phải số nguyên không
+
+                // Kiểm tra số nguyên
                 if (x == (int)x) {
-                    printf("%.1f la so nguyen\n", x);
+                    int n = (int)x;  
+                    printf("%d la so nguyen\n", n);
+
+                    // Kiểm tra số chính phương
+                    int r = sqrt(n);
+                    if (r*r == n)
+                        printf("%d la so chinh phuong\n", n);
+                    else
+                        printf("%d khong phai so chinh phuong\n", n);
+
                 } else {
-                    printf("%.1f la so thuc\n", x);
+                    printf("%.2f la so thuc\n", x);
                 }
                 break;
             }
+
             case 2: {
                 printf("Ban chon CN2\n");
-                // Thêm code chức năng 2 ở đây
                 break;
             }
             case 3: {
                 printf("Ban chon CN3\n");
-                // Thêm code chức năng 3 ở đây
                 break;
             }
             case 4: {
                 printf("Ban chon CN4\n");
-                // Thêm code chức năng 4 ở đây
                 break;
             }
             case 0: {
@@ -58,9 +62,8 @@ int main() {
             }
         }
         
-        // Dừng màn hình để xem kết quả (chỉ khi không phải là thoát)
         if(luaChon != 0) {
-            system("pause"); // Hoặc có thể dùng getchar();
+            system("pause");
         }
         
     } while(luaChon != 0);
