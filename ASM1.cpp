@@ -17,28 +17,47 @@ int main() {
         
         switch(luaChon) {
            case 1:{
-                printf("Ban chon CN1\n");
-                float x;
-                printf("Moi ban nhap so x: ");
-                scanf("%f", &x);
+    printf("Ban chon CN1\n");
+    float x;
+    printf("Moi ban nhap so x: ");
+    scanf("%f", &x);
 
-                // Kiểm tra số nguyên
-                if (x == (int)x) {
-                    int n = (int)x;  
-                    printf("%d la so nguyen\n", n);
+    // Kiểm tra số nguyên
+    if (x == (int)x) {
+        int n = (int)x;  
+        printf("%d la so nguyen\n", n);
 
-                    // Kiểm tra số chính phương
-                    int r = sqrt(n);
-                    if (r*r == n)
-                        printf("%d la so chinh phuong\n", n);
-                    else
-                        printf("%d khong phai so chinh phuong\n", n);
+        // Kiểm tra số chính phương
+        int r = sqrt(n);
+        if (r*r == n)
+            printf("%d la so chinh phuong\n", n);
+        else
+            printf("%d khong phai so chinh phuong\n", n);
 
-                } else {
-                    printf("%.2f la so thuc\n", x);
+        // --- Kiểm tra số nguyên tố ---
+        if (n < 2) {
+            printf("%d khong phai so nguyen to\n", n);
+        } else {
+            int isPrime = 1;
+            for (int i = 2; i <= sqrt(n); i++) {
+                if (n % i == 0) {
+                    isPrime = 0;
+                    break;
                 }
-                break;
             }
+            if (isPrime)
+                printf("%d la so nguyen to\n", n);
+            else
+                printf("%d khong phai so nguyen to\n", n);
+        }
+        // ------------------------------
+
+    } else {
+        printf("%.2f la so thuc\n", x);
+    }
+    break;
+}
+
 
             case 2: {
                 printf("Ban chon CN2\n");
